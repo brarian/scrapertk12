@@ -1,3 +1,4 @@
+const fs = require('fs');
 const puppeteer = require("puppeteer");
 
 // python to go through pages sequntially ?
@@ -13,7 +14,7 @@ const puppeteer = require("puppeteer");
   await page.goto(url);
 //   await page.screenshot({ path: "example.png" });
 
-  const dressNames = await page.evaluate(() =>
+  const entireBody = await page.evaluate(() =>
     Array.from(document.querySelectorAll(".sectionText")).map(
       dressName => dressName.innerText.trim()
     )
@@ -39,7 +40,8 @@ const puppeteer = require("puppeteer");
 //    console.log([...dAndPriceArray]);
 // })
  
-  console.log([...dressNames]);
+let data = JSON.stringify(entireBody);
+fs.writeFileSync('tk12eep', data);
   //console.log(list);
   //log([...list]);
   
