@@ -1,0 +1,18 @@
+{
+    id, 
+    season id, 
+    episode_id_season, 
+    title, 
+    desctiption_short,
+    desctiption_long, 
+    date_released, 
+    date_transcribed
+}
+
+
+
+links to go to at the end of the list {
+episode_id
+description, 
+url 
+}
