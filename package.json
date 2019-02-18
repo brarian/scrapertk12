@@ -17,6 +17,10 @@
   "homepage": "https://github.com/brarian/scrapertk12#readme",
   "description": "",
   "dependencies": {
-    "puppeteer": "^1.12.2"
+    "js2xmlparser": "^3.0.0",
+    "metascraper": "^4.10.1",
+    "puppeteer": "^1.12.2",
+    "scrape-metadata": "^2.0.0",
+    "xml-js": "^1.6.11"
   }
 }

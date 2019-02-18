@@ -11,21 +11,21 @@ const puppeteer = require("puppeteer");
   const page = await browser.newPage();
   const url = "http://www.k12engineering.net/transcripts/ep2.html";
   await page.goto(url);
-  //   await page.screenshot({ path: "example.png" });
 
   const entireBody = await page.evaluate(() =>
-    Array.from(document.querySelectorAll(".MsoNormal")).map(dressName =>
-      dressName.innerText.trim()
+    (document.querySelector('head > meta:nth-child(12)')
     )
   );
 
-  const prices = await page.evaluate(() =>
-    Array.from(document.querySelectorAll(".c-product-tile__price")).map(price =>
-      price.innerText.trim()
-    )
-  );
+  // const meta = await page.evaluate(()=> 
+  // JSON.stringify(document.querySelector('head > meta:nth-child(15)'))
 
-  // const list = await page.evaluate(() => {
+  //await page.evaluate(() => 
+  //url.document.querySelector('head > meta:nth-child(15)');
+  
+  
+
+//  const list = await page.evaluate(() => {
   //   let dressNames = document.querySelectorAll(");
   //   let prices = document.querySelectorAll(".c-product-tile__price");
   //   let dAndPriceArray = [];
@@ -39,9 +39,8 @@ const puppeteer = require("puppeteer");
   //    console.log([...dAndPriceArray]);
   // })
 
-  let data = JSON.stringify(entireBody);
-  fs.writeFileSync("tk12eepMsoNormal", data);
-  //console.log(list);
+  // let data = JSON.stringify(meta);
+  console.log(JSON.stringify(entireBody));
   //log([...list]);
 
   await browser.close();
