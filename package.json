@@ -21,6 +21,7 @@
     "metascraper": "^4.10.1",
     "puppeteer": "^1.12.2",
     "scrape-metadata": "^2.0.0",
+    "scrapy": "0.0.1",
     "xml-js": "^1.6.11"
   }
 }

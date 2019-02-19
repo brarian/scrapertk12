@@ -41,7 +41,7 @@ const puppeteer = require("puppeteer");
 
   // let data = JSON.stringify(meta);
   console.log(JSON.stringify(entireBody));
-  //log([...list]);
+
 
   await browser.close();
 })();

@@ -8,7 +8,8 @@ const fs = require("fs");
 const url = "http://www.k12engineering.net/transcripts/ep2.html";
 
 scrape(url, (err, data) => {
-    fs.writeFileSync("new.json",JSON.stringify(data))
+    console.log(data)
+    fs.writeFileSync("new.json", JSON.stringify(data))
 });
 
 
