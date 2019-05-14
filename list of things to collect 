@@ -1,14 +1,15 @@
 {
-    id, 
-    season id, 
-    episode_id_season, 
-    title, 
-    desctiption_short,
+   // id, 
+    //season id, 
+    //episode_id_season, 
+   // title, 
+    //desctiption_short,
     desctiption_long, 
     date_released, 
     date_transcribed
 }
 
+//tags and release dates 
 
 
 {
@@ -16,3 +17,7 @@ episode_id
 description, 
 url 
 }
+
+upload it to local server 
+format of the database tables  - in the same format as specified in the sql file  
+-- or put it on slack and upload it directly 

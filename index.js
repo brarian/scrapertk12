@@ -1,47 +1,25 @@
-const fs = require("fs");
 const puppeteer = require("puppeteer");
+const fs = require("fs");
 
-// python to go through pages sequntially ?
-//map constants
-//figure out how to turn map to json file
-//json to sql
-
-(async () => {
+async function run() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  const url = "http://www.k12engineering.net/transcripts/ep2.html";
-  await page.goto(url);
+  const descriptionSelector =
+    "body > div.mainPage > div.mainContent > div.mainContentLeft > div:nth-child(1) span.sectionText > p:nth-child(2)";
 
-  const entireBody = await page.evaluate(() =>
-    (document.querySelector('head > meta:nth-child(12)')
-    )
-  );
-
-  // const meta = await page.evaluate(()=> 
-  // JSON.stringify(document.querySelector('head > meta:nth-child(15)'))
-
-  //await page.evaluate(() => 
-  //url.document.querySelector('head > meta:nth-child(15)');
-  
-  
-
-//  const list = await page.evaluate(() => {
-  //   let dressNames = document.querySelectorAll(");
-  //   let prices = document.querySelectorAll(".c-product-tile__price");
-  //   let dAndPriceArray = [];
-
-  //   for (let i = 0; i < dressNames.length; i++){
-  //     dAndPriceArray[i] = {
-  //       dressNames: dressNames[i].innerText.trim(),
-  //       prices: prices[i].innerText.trim()
-  //     };
-  //   }
-  //    console.log([...dAndPriceArray]);
-  // })
-
-  // let data = JSON.stringify(meta);
-  console.log(JSON.stringify(entireBody));
+  for (let i = 50; i < 55; i++) {
+    await page.goto(`http://www.k12engineering.net/transcripts/ep${i}.html`);
+    let title = await page.title();
+    let description = await page.evaluate(sel => {
+      return document.querySelector(sel).innerText.replace("/", "");
+    }, descriptionSelector);
 
 
-  await browser.close();
-})();
+    let data = {
+      "title" : title, 
+      "description" : description 
+    }
+    fs.writeFileSync("new3.json", JSON.stringify(data))
+  }
+}
+run();
